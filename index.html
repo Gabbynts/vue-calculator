@@ -3,6 +3,32 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      body {
+        font-size: large;
+        font-weight: 600;
+      }
+
+      button {
+        padding: 10px 15px;
+        margin-right: 3px;
+        background-color: rgb(112, 190, 211);
+        border: none;
+        border-radius: 3px;
+      }
+
+      input{
+        background-color: rgb(188, 227, 235);
+        border-color: rgb(31, 153, 153);
+        margin-top: 5px;
+      }
+
+      input,
+      button {
+        font-size: medium;
+        font-weight: 500;
+      }
+    </style>
     <title>Calculator</title>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
   </head>
@@ -11,11 +37,16 @@
       Hasil: {{ hasil }}
       <br />
       <input type="number" v-model="angka1" />
+      <br />
       <input type="number" v-model="angka2" />
-      <button v-on:click="hasil=angka1+angka2">+</button>
-      <button v-on:click="hasil=angka1-angka2">-</button>
-      <button v-on:click="hasil=angka1*angka2">*</button>
-      <button v-on:click="hasil=angka1/angka2">/</button>
+      <div style="margin-top: 10px;">
+        <button v-on:click="hasil=parseFloat(angka1)+parseFloat(angka2)">
+          +
+        </button>
+        <button v-on:click="hasil=angka1-angka2">-</button>
+        <button v-on:click="hasil=angka1*angka2">*</button>
+        <button v-on:click="hasil=angka1/angka2">/</button>
+      </div>
     </div>
     <script>
       var app = new Vue({
